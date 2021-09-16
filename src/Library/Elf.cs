@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class Wizard
+    public class Elf
     {
         private string name { get; set; }
         private int attack { get; set; }
@@ -11,7 +11,7 @@ namespace Library
         private Item item { get; set; }
         private static Dictionary<int,Item> items = new Dictionary<int, Item>();
 
-        public Wizard(string name, int attack, int health)
+        public Elf(string name, int attack, int health)
         {
             this.name = name;
             this.attack = attack;
@@ -52,7 +52,7 @@ namespace Library
 
         public void PrettyPrint()
         {
-            Console.WriteLine($"This is the wizard {this.name}, his hp is {this.health} and he his attack damage is {this.attack}, rightnow he is equipped with {this.item.name}");
+            Console.WriteLine($"This is the Elf {this.name}, his hp is {this.health} and he his attack damage is {this.attack}, rightnow he is equipped with {this.item.name}");
         }
     }
 }
