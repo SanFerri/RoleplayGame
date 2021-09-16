@@ -16,6 +16,7 @@ namespace Program
             Dwarf.AddItem(JottuunsWrath);
             Fafnir.Equip();
             Fafnir.PrettyPrint();
+
         }
     }
 }
