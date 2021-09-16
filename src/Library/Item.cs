@@ -8,7 +8,7 @@ namespace Library
         public int endurance {get; set;}
         public Skill skill {get; set;}
 
-        public Item(string name, int damage, int endurance)
+        public Item(string name, int damage, int endurance, Skill skill)
         {
             this.name = name;
             this.damage = damage;

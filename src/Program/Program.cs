@@ -18,8 +18,9 @@ namespace Program
             Elf.AddItem(Executioner);
             Neith.Equip();
             Neith.PrettyPrint();
-   
-            Item SpellBook = new Item("SpellBook", 210, 15);
+
+            Skill ArcaneMissiles = new Skill("Arcane Missiles", 80);
+            Item SpellBook = new Item("SpellBook", 210, 15, ArcaneMissiles);
             Item ChronosPendant = new Item("Chronos Pendant", 300, 5);
             Item DoomOrb = new Item("Doom Orb", 100, 25);
             Wizard Thoth = new Wizard("Thoth", 10, 10);
@@ -38,6 +39,8 @@ namespace Program
             Dwarf.AddItem(JottuunsWrath);
             Fafnir.Equip();
             Fafnir.PrettyPrint();
+
+            Thoth.CastSkill();
 
         }
     }
