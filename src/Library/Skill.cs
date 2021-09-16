@@ -17,6 +17,12 @@ namespace Library
             get {return skills;}
             set {skills.Add(value);}
         }
+
+        public int CastSpell(Item item)
+        {
+            
+        }
+
     }
     
 }

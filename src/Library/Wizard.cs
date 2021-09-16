@@ -50,6 +50,11 @@ namespace Library
             this.health = this.health - damage;
         }
 
+        public void CastSkill()
+        {
+            this.item.skill.CastSpell();
+        }
+
         public void PrettyPrint()
         {
             Console.WriteLine($"This is the wizard {this.name}, his hp is {this.health} and he his attack damage is {this.attack}, rightnow he is equipped with {this.item.name}");
