@@ -26,7 +26,7 @@ namespace Library
                 Console.WriteLine($"{obj.Key}. {obj.Value.name}");
             }
             Console.WriteLine("Pick a number to equip the item: \n");
-            int index = Console.Read() - 48;
+            int index = Convert.ToInt32(Console.Read());
             this.item = items[index];
         }
         
