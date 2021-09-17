@@ -12,12 +12,13 @@ namespace Library
         private int inicialhealth;
         private static Dictionary<int,Item> items = new Dictionary<int, Item>();
 
-        public UnDead(string name, int attack, int health)
+        public UnDead(string name, int attack, int health, SpellBook spellbook)
         {
             this.name = name;
             this.attack = attack;
             this.health = health;
-            inicialhealth = health;
+            this.inicialhealth = health;
+            this.spellbook = spellbook
 
         }
 
@@ -73,6 +74,11 @@ namespace Library
         public void Heal()
         {
             this.health = inicialhealth;
+        }
+
+        public void CastSkill()
+        {
+            this.item.skill.CastSpell();
         }
 
         public void PrettyPrint()

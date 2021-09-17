@@ -12,11 +12,13 @@ namespace Library
         private int inicialhealth;
         private static Dictionary<int,Item> items = new Dictionary<int, Item>();
 
-        public Wizard(string name, int attack, int health)
+        public Wizard(string name, int attack, int health, SpellBook spellbook)
         {
             this.name = name;
             this.attack = attack;
             this.health = health;
+            this.inicialhealth = health;
+            this.SpellBook = spellbook;
         }
 
         public void Equip()

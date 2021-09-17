@@ -4,18 +4,18 @@ using System;
 
 namespace Library
 {
-    public class Skill //Esta clase se encarga de crear habilidades para los diferentes items
+    public class Spell //Esta clase se encarga de crear los hechizos para los magos
     {
         public int damage {get; set;}
         public string name {get; set;}
 
-        public Skill(string name, int damage)
+        public Spell(string name, int damage)
         {
             this.name = name;
             this.damage = damage;
         }
 
-        public int CastSkill()
+        public int CastSpell()
         {
             return this.damage;
         }
