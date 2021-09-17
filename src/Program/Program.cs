@@ -18,10 +18,9 @@ namespace Program
             Neith.Equip();
             Neith.PrettyPrint();
 
-            Skill.AddSkill(ArcaneMisseles);
             Skill ArcaneMissiles = new Skill("Arcane Missiles", 80);
 
-            Item SpellBook = new Item("SpellBook", 210, 15, ArcaneMissiles);
+            Item Polynomicon = new Item("Polynomicon", 210, 0);
             Item ChronosPendant = new Item("Chronos Pendant", 300, 5);
             Item DoomOrb = new Item("Doom Orb", 100, 25);
             Wizard Thoth = new Wizard("Thoth", 10, 5000);
@@ -30,6 +29,7 @@ namespace Program
             Wizard.AddItem(SpellBook);
             Thoth.Equip();
             Thoth.PrettyPrint();
+            Thoth.CastSpell();
 
             Item VoidStone = new Item("Void Stone", 210, 15);
             Item TitansBane = new Item("TitansBane", 300, 5);
@@ -41,17 +41,17 @@ namespace Program
             Fafnir.Equip();
             Fafnir.PrettyPrint();
 
-            Skill DeathGaze = new Skill("Death Gaze", 80);
-            Item SpellBook = new Item("SpellBook", 210, 15, DeathGaze);
+            Spell DeathGaze = new Spell("Death Gaze", 80);
+            SpellBook DeathNote = new SpellBook("Death Note");
             Item SacrificialShroud = new Item("Sacrificial Shroud", 300, 5);
             Item BancroftsTalon = new Item("Bancroft's Talon", 100, 25);
-            UnDead Anubis = new UnDead("Anubis", 10, 10);
+            UnDead Anubis = new UnDead("Anubis", 10, 10, DeathNote);
+            DeathNote.AddSpell(DeathGaze);
             Undead.AddItem(SacrificialShroud);
             Undead.AddItem(BancroftsTalon);
-            Undead.AddItem(SpellBook);
             Anubis.Equip();
             Anubis.PrettyPrint();
-            Anubis.CastSkill();
+            Anubis.CastSpell();
 
         }
     }

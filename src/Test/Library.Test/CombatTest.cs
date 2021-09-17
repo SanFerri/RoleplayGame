@@ -7,10 +7,11 @@ namespace Test.Library
     public class ExampleTest
     {
         [SetUp]
+        public void SetUp()
         {
             Undead Anubis = new Undead("Anubis", 10, 10);
-        
-        
+        }
+
         [Test]
         public void dummyTest()
         {

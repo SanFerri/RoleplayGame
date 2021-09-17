@@ -17,6 +17,7 @@ namespace Library
             this.name = name;
             this.attack = attack;
             this.health = health;
+            this.inicialhealth = health;
         }
 
         public void Equip()
