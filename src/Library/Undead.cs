@@ -74,11 +74,6 @@ namespace Library
         {
             this.health = inicialhealth;
         }
-        
-        public void CastSkill()
-        {
-            this.item.skill.CastSpell();
-        }
 
         public void PrettyPrint()
         {
