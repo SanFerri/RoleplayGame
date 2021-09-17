@@ -8,31 +8,37 @@ namespace Library
     {
         public int damage {get; set;}
         public string name {get; set;}
-        private static Dictionary<int,Skill> skills = new Dictionary<int, Skill>()
+        private static Dictionary<int,Skill> skills = new Dictionary<int, Skill>();
         public Skill(string name, int damage)
         {
             this.name = name;
             this.damage = damage;
-            this.skills.Add((this.damage,this.type));
         }
         
-        public Dictionary<int,Skill> Skill()
+        public static void AddSkill(Skill skill)
         {
-            get {return skills;}
-            set {skills.Add(value);}
+            int number;
+            if(skills.Count > 0)
+            {
+                number = skills.Count + 1;
+            }
+            else
+            {
+                number = 1;
+            }
+            skills.Add(number, skill);
+            skills.Remove(0);
         }
 
         public int CastSpell(Item item)
         {
             foreach(KeyValuePair<int, Skill> obj in skills)
             {
-                Console.WriteLine($"(obj.Key). (obj.Value.name)");
+                Console.WriteLine($"{obj.Key}. {obj.Value.name}- {obj.Value.damage} damage");
             }
             Console.WriteLine("Pick a skill: \n");
             int index = Convert.ToInt32(Console.ReadLine());
-            return this.skills[index-1].damage;
+            return skills[index-1].damage;
         }
-
-    }
-    
+    }   
 }

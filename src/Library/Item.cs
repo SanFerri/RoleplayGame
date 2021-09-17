@@ -16,6 +16,10 @@ namespace Library
             this.skill = skill;
         }
 
+        public int UseItem()
+        {
+            return this.skill.CastSpell(this) * this.damage;
+        }
         public void PrettyPrint()
         {
             Console.WriteLine($"This is {this.name}, its damage is {this.damage}, it has an endurance of {this.endurance}, and its skill is {this.skill}");

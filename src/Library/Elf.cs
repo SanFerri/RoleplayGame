@@ -45,6 +45,23 @@ namespace Library
             items.Remove(0);
         }
 
+        public void Attack(Wizard wizard)
+        {
+            wizard.Damaged(this.item.UseItem());
+        }
+        
+        
+        public void Attack(Dwarf dwarf)
+        {
+            dwarf.Damaged(this.item.UseItem());
+        }
+
+        
+        public void Attack(UnDead unDead)
+        {
+            unDead.Damaged(this.item.UseItem());
+        }
+
         public void Damaged(int damage)
         {
             this.health = this.health - damage;

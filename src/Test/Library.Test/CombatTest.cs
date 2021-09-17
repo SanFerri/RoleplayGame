@@ -6,6 +6,8 @@ namespace Test.Library
 
     public class ExampleTest
     {
+        [SetUp]
+        
 
         [Test]
         public void dummyTest()

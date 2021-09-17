@@ -45,14 +45,26 @@ namespace Library
             items.Remove(0);
         }
 
+        public void Attack(Elf elf)
+        {
+            elf.Damaged(this.item.UseItem() * this.attack);
+        }
+        
+        
+        public void Attack(Dwarf dwarf)
+        {
+            dwarf.Damaged(this.item.UseItem() * this.attack);
+        }
+
+        
+        public void Attack(UnDead unDead)
+        {
+            unDead.Damaged(this.item.UseItem() * this.attack);
+        }
+
         public void Damaged(int damage)
         {
             this.health = this.health - damage;
-        }
-
-        public void CastSkill()
-        {
-            this.item.skill.CastSpell();
         }
 
         public void PrettyPrint()
