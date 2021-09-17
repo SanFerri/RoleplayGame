@@ -50,7 +50,7 @@ namespace Library
 
         public void Heal()
         {
-            Undead.health = inicialhealth;
+            this.health = inicialhealth;
         }
 
         public void Damaged(int damage)

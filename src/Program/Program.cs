@@ -29,6 +29,7 @@ namespace Program
             Wizard.AddItem(SpellBook);
             Thoth.Equip();
             Thoth.PrettyPrint();
+            Thoth.CastSkill();
 
             Item VoidStone = new Item("Void Stone", 210, 15);
             Item TitansBane = new Item("TitansBane", 300, 5);
@@ -40,7 +41,6 @@ namespace Program
             Fafnir.Equip();
             Fafnir.PrettyPrint();
 
-            Thoth.CastSkill();
 
             Skill DeathGaze = new Skill("Death Gaze", 80);
             Item SpellBook = new Item("SpellBook", 210, 15, DeathGaze);
