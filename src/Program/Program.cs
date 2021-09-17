@@ -42,6 +42,18 @@ namespace Program
 
             Thoth.CastSkill();
 
+            Skill DeathGaze = new Skill("Death Gaze", 80);
+            Item SpellBook = new Item("SpellBook", 210, 15, DeathGaze);
+            Item SacrificialShroud = new Item("Sacrificial Shroud", 300, 5);
+            Item BancroftsTalon = new Item("Bancroft's Talon", 100, 25);
+            Undead Anubis = new Undead("Anubis", 10, 10);
+            Undead.AddItem(SacrificialShroud);
+            Undead.AddItem(BancroftsTalon);
+            Undead.AddItem(SpellBook);
+            Anubis.Equip();
+            Anubis.PrettyPrint();
+            Anubis.CastSkill();
+
         }
     }
 }

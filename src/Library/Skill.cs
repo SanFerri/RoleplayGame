@@ -8,7 +8,7 @@ namespace Library
     {
         public int damage {get; set;}
         public string name {get; set;}
-        private static Dictionary<int,Skill> skills = new Dictionary<int, Skill>()
+        private static Dictionary<int,Skill> skills = new Dictionary<int, Skill>();
         public Skill(string name, int damage)
         {
             this.name = name;
