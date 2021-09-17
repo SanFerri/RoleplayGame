@@ -41,6 +41,18 @@ namespace Program
             Fafnir.Equip();
             Fafnir.PrettyPrint();
 
+            Skill DeathGaze = new Skill("Death Gaze", 80);
+            Item SpellBook = new Item("SpellBook", 210, 15, DeathGaze);
+            Item SacrificialShroud = new Item("Sacrificial Shroud", 300, 5);
+            Item BancroftsTalon = new Item("Bancroft's Talon", 100, 25);
+            UnDead Anubis = new UnDead("Anubis", 10, 10);
+            Undead.AddItem(SacrificialShroud);
+            Undead.AddItem(BancroftsTalon);
+            Undead.AddItem(SpellBook);
+            Anubis.Equip();
+            Anubis.PrettyPrint();
+            Anubis.CastSkill();
+
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class Dwarf
+    public class UnDead
     {
         private string name { get; set; }
         private int attack { get; set; }
@@ -12,11 +12,13 @@ namespace Library
         private int inicialhealth;
         private static Dictionary<int,Item> items = new Dictionary<int, Item>();
 
-        public Dwarf(string name, int attack, int health)
+        public UnDead(string name, int attack, int health)
         {
             this.name = name;
             this.attack = attack;
             this.health = health;
+            inicialhealth = health;
+
         }
 
         public void Equip()
@@ -48,21 +50,21 @@ namespace Library
 
         public void Attack(Elf elf)
         {
-            elf.Damaged(this.item.UseItem());
+            elf.Damaged(this.item.UseItem() * this.attack);
         }
         
         
-        public void Attack(Wizard wizard)
+        public void Attack(Dwarf dwarf)
         {
-            wizard.Damaged(this.item.UseItem());
+            dwarf.Damaged(this.item.UseItem() * this.attack);
         }
 
         
-        public void Attack(UnDead unDead)
+        public void Attack(Wizard wizard)
         {
-            unDead.Damaged(this.item.UseItem());
+            wizard.Damaged(this.item.UseItem() * this.attack);
         }
-        
+
         public void Damaged(int damage)
         {
             this.health = this.health - damage;
@@ -72,10 +74,15 @@ namespace Library
         {
             this.health = inicialhealth;
         }
+        
+        public void CastSkill()
+        {
+            this.item.skill.CastSpell();
+        }
 
         public void PrettyPrint()
         {
-            Console.WriteLine($"This is the dwarf {this.name}, his hp is {this.health} and he his attack damage is {this.attack}, rightnow he is equipped with {this.item.name}");
+            Console.WriteLine($"This is the undead {this.name}, his hp is {this.health} and he his attack damage is {this.attack}, rightnow he is equipped with {this.item.name}");
         }
     }
 }

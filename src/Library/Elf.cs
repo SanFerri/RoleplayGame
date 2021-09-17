@@ -9,6 +9,7 @@ namespace Library
         private int attack { get; set; }
         private int health { get; set; }
         private Item item { get; set; }
+        private int inicialhealth;
         private static Dictionary<int,Item> items = new Dictionary<int, Item>();
 
         public Elf(string name, int attack, int health)
@@ -65,6 +66,11 @@ namespace Library
         public void Damaged(int damage)
         {
             this.health = this.health - damage;
+        }
+
+        public void Heal()
+        {
+            this.health = inicialhealth;
         }
 
         public void PrettyPrint()
