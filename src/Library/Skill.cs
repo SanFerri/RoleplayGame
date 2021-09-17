@@ -14,10 +14,5 @@ namespace Library
             this.name = name;
             this.damage = damage;
         }
-
-        public int CastSkill()
-        {
-            return this.damage;
-        }
     }   
 }

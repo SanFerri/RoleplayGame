@@ -18,7 +18,7 @@ namespace Library
 
         public int UseItem()
         {
-            return this.skill.CastSkill() * this.damage;
+            return this.skill.damage * this.damage;
         }
         public void PrettyPrint()
         {

@@ -1,14 +1,17 @@
 using System;
+using System.Collections.Generic;
+
 namespace Library
 {
     public class SpellBook
     {
         public string name { get; set; }
-        private static Dictionary<int,Spell> spells = new Dictionary<int, Spell>();
+        private Dictionary<int,Spell> spells = new Dictionary<int, Spell>();
         
         public SpellBook(string name)
         {
             this.name = name;
+            this.spells = spells;
         }
         
         public void PrettyPrint()
@@ -16,12 +19,12 @@ namespace Library
             Console.WriteLine($"This is {this.name}, and it contains {this.spells.Count} spells");
         }
         
-        public static void AddSpell(Spell Spell)
+        public void AddSpell(Spell spell)
         {
             int number;
-            if(spells.Count > 0)
+            if(this.spells.Count > 0)
             {
-                number = spells.Count + 1;
+                number = this.spells.Count + 1;
             }
             else
             {
@@ -39,7 +42,7 @@ namespace Library
             }
             Console.WriteLine("Pick a skill: \n");
             int index = Convert.ToInt32(Console.ReadLine());
-            return spells[index-1].damage;
+            return spells[index].damage;
         }
 
     }

@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Library;
 
 namespace Test.Library
 {
@@ -6,32 +7,76 @@ namespace Test.Library
 
     public class ExampleTest
     {
-        [SetUp]
-        public void SetUp()
+        [Test]
+        public void TestingAttack()
         {
-            Undead Anubis = new Undead("Anubis", 10, 10);
+            Spell BloodySpear = new Spell("Bloody Spear", 65);
+            SpellBook DeathNote = new SpellBook("Death Note");
+            DeathNote.AddSpell(BloodySpear);
+            Skill DeathGaze = new Skill("Death Gaze", 80);
+            Item Isolation = new Item("Isolation", 210, 15, DeathGaze);
+            Item SacrificialShroud = new Item("Sacrificial Shroud", 300, 5, DeathGaze);
+            Item BancroftsTalon = new Item("Bancroft's Talon", 100, 25, DeathGaze);
+            UnDead Anubis = new UnDead("Anubis", 10, 5500, DeathNote);
+            UnDead.AddItem(SacrificialShroud);
+            UnDead.AddItem(BancroftsTalon);
+            UnDead.AddItem(Isolation);
+            Anubis.item = Isolation;
+
+            Skill HammersAnger = new Skill("Hammer´s Anger", 40);
+            Item VoidStone = new Item("Void Stone", 210, 15, HammersAnger);
+            Item TitansBane = new Item("TitansBane", 300, 5, HammersAnger);
+            Item JottuunsWrath = new Item("Jottuns Wrath", 100, 25, HammersAnger);
+            Dwarf Fafnir = new Dwarf("Fafnir", 10, 168001);
+            Dwarf.AddItem(VoidStone);
+            Dwarf.AddItem(TitansBane);
+            Dwarf.AddItem(JottuunsWrath);
+
+            int expected = 1;
+            Anubis.Attack(Fafnir);
+            Assert.AreEqual(expected, Fafnir.health);
         }
 
         [Test]
-        public void dummyTest()
+        public void TestingSpell()
         {
-            Assert.True(true);
-        }
+            Spell BloodySpear = new Spell("Bloody Spear", 65);
+            SpellBook DeathNote = new SpellBook("Death Note");
+            DeathNote.AddSpell(BloodySpear);
+            Skill DeathGaze = new Skill("Death Gaze", 80);
+            Item Isolation = new Item("Isolation", 210, 15, DeathGaze);
+            Item SacrificialShroud = new Item("Sacrificial Shroud", 300, 5, DeathGaze);
+            Item BancroftsTalon = new Item("Bancroft's Talon", 100, 25, DeathGaze);
+            UnDead Anubis = new UnDead("Anubis", 10, 5500, DeathNote);
+            UnDead.AddItem(SacrificialShroud);
+            UnDead.AddItem(BancroftsTalon);
+            UnDead.AddItem(Isolation);
 
-        [Test]
-        public void damagetest()
-        {
-            int postdamagedhealth = 5
-            Anubis.Damaged(5);
-            Assert.True(postdamagedhealth = Anubis.health);
+            Skill HammersAnger = new Skill("Hammer´s Anger", 40);
+            Item VoidStone = new Item("Void Stone", 210, 15, HammersAnger);
+            Item TitansBane = new Item("TitansBane", 300, 5, HammersAnger);
+            Item JottuunsWrath = new Item("Jottuns Wrath", 100, 25, HammersAnger);
+            Dwarf Fafnir = new Dwarf("Fafnir", 10, 8000);
+            Dwarf.AddItem(VoidStone);
+            Dwarf.AddItem(TitansBane);
+            Dwarf.AddItem(JottuunsWrath);
+
+            Fafnir.Damaged(BloodySpear.damage);
+            int expected = 7935;
+            Assert.AreEqual(expected, Fafnir.health);
         }
         [Test]
         public void healtest()
         {
-            int postheal_health = 10
+            Spell BloodySpear = new Spell("Bloody Spear", 65);
+            SpellBook DeathNote = new SpellBook("Death Note");
+            DeathNote.AddSpell(BloodySpear);
+            UnDead Anubis = new UnDead("Anubis", 10, 5500, DeathNote);
+
+            int expected = 5500;
             Anubis.Damaged(5);
             Anubis.Heal();
-            Assert.True(postheal_health = Anubis.health);
+            Assert.AreEqual(expected, Anubis.health);
         }
     
     }

@@ -7,9 +7,11 @@ namespace Library
     {
         private string name { get; set; }
         private int attack { get; set; }
-        private int health { get; set; }
+        public int health { get; set; }
         private Item item { get; set; }
-        private int inicialhealth;
+        private int inicialhealth { get; set; }
+
+        private SpellBook spellbook { get; set; }
         private static Dictionary<int,Item> items = new Dictionary<int, Item>();
 
         public Wizard(string name, int attack, int health, SpellBook spellbook)
@@ -18,7 +20,7 @@ namespace Library
             this.attack = attack;
             this.health = health;
             this.inicialhealth = health;
-            this.SpellBook = spellbook;
+            this.spellbook = spellbook;
         }
 
         public void Equip()

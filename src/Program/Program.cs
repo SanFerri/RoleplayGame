@@ -8,51 +8,59 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Item DeathBringer = new Item("DeathBringer", 210, 15);
-            Item Asi = new Item("Asi", 300, 5);
-            Item Executioner = new Item("Executioner", 100, 25);
-            Elf Neith = new Elf("Neith", 10, 5000);
+            Skill FireArrow = new Skill("Fire Arrow", 60);
+            Item DeathBringer = new Item("DeathBringer", 210, 15, FireArrow);
+            Item Asi = new Item("Asi", 300, 5, FireArrow);
+            Item Executioner = new Item("Executioner", 100, 25, FireArrow);
+            Elf Neith = new Elf("Neith", 10, 6000);
             Elf.AddItem(DeathBringer);
             Elf.AddItem(Asi);
             Elf.AddItem(Executioner);
             Neith.Equip();
             Neith.PrettyPrint();
 
+            SpellBook BookOfThoth = new SpellBook("Book Of Thoth");
+            Spell FireBall = new Spell("Fireball", 70);
+            BookOfThoth.AddSpell(FireBall);
             Skill ArcaneMissiles = new Skill("Arcane Missiles", 80);
-
-            Item Polynomicon = new Item("Polynomicon", 210, 0);
-            Item ChronosPendant = new Item("Chronos Pendant", 300, 5);
-            Item DoomOrb = new Item("Doom Orb", 100, 25);
-            Wizard Thoth = new Wizard("Thoth", 10, 5000);
+            Item Polinomicon = new Item("Polinomicon", 210, 15, ArcaneMissiles);
+            Item ChronosPendant = new Item("Chronos Pendant", 300, 5, ArcaneMissiles);
+            Item DoomOrb = new Item("Doom Orb", 100, 25, ArcaneMissiles);
+            Wizard Thoth = new Wizard("Thoth", 10, 5000, BookOfThoth);
             Wizard.AddItem(DoomOrb);
             Wizard.AddItem(ChronosPendant);
-            Wizard.AddItem(SpellBook);
+            Wizard.AddItem(Polinomicon);
             Thoth.Equip();
             Thoth.PrettyPrint();
-            Thoth.CastSpell();
+            BookOfThoth.PrettyPrint();
 
-            Item VoidStone = new Item("Void Stone", 210, 15);
-            Item TitansBane = new Item("TitansBane", 300, 5);
-            Item JottuunsWrath = new Item("Jottuns Wrath", 100, 25);
-            Dwarf Fafnir = new Dwarf("Fafnir", 10, 5000);
+            Skill HammersAnger = new Skill("Hammer´s Anger", 40);
+            Item VoidStone = new Item("Void Stone", 210, 15, HammersAnger);
+            Item TitansBane = new Item("TitansBane", 300, 5, HammersAnger);
+            Item JottuunsWrath = new Item("Jottuns Wrath", 100, 25, HammersAnger);
+            Dwarf Fafnir = new Dwarf("Fafnir", 10, 8000);
             Dwarf.AddItem(VoidStone);
             Dwarf.AddItem(TitansBane);
             Dwarf.AddItem(JottuunsWrath);
             Fafnir.Equip();
             Fafnir.PrettyPrint();
 
-            Spell DeathGaze = new Spell("Death Gaze", 80);
+            Spell BloodySpear = new Spell("Bloody Spear", 65);
             SpellBook DeathNote = new SpellBook("Death Note");
-            Item SacrificialShroud = new Item("Sacrificial Shroud", 300, 5);
-            Item BancroftsTalon = new Item("Bancroft's Talon", 100, 25);
+            DeathNote.AddSpell(BloodySpear);
+            Skill DeathGaze = new Skill("Death Gaze", 80);
+            Item Isolation = new Item("Isolation", 210, 15, DeathGaze);
+            Item SacrificialShroud = new Item("Sacrificial Shroud", 300, 5, DeathGaze);
+            Item BancroftsTalon = new Item("Bancroft's Talon", 100, 25, DeathGaze);
             UnDead Anubis = new UnDead("Anubis", 10, 10, DeathNote);
-            DeathNote.AddSpell(DeathGaze);
-            Undead.AddItem(SacrificialShroud);
-            Undead.AddItem(BancroftsTalon);
+            UnDead.AddItem(SacrificialShroud);
+            UnDead.AddItem(BancroftsTalon);
+            UnDead.AddItem(Isolation);
             Anubis.Equip();
             Anubis.PrettyPrint();
-            Anubis.CastSpell();
+            DeathNote.PrettyPrint();
 
+            Anubis.spellbook.CastSpell();
         }
     }
 }

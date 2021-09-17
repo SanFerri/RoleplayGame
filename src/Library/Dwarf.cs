@@ -7,7 +7,7 @@ namespace Library
     {
         private string name { get; set; }
         private int attack { get; set; }
-        private int health { get; set; }
+        public int health { get; set; }
         private Item item { get; set; }
         private int inicialhealth;
         private static Dictionary<int,Item> items = new Dictionary<int, Item>();

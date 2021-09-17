@@ -7,9 +7,10 @@ namespace Library
     {
         private string name { get; set; }
         private int attack { get; set; }
-        private int health { get; set; }
-        private Item item { get; set; }
-        private int inicialhealth;
+        public int health { get; set; }
+        public Item item { get; set; }
+        private int inicialhealth { get; set;}
+        public SpellBook spellbook;
         private static Dictionary<int,Item> items = new Dictionary<int, Item>();
 
         public UnDead(string name, int attack, int health, SpellBook spellbook)
@@ -18,8 +19,7 @@ namespace Library
             this.attack = attack;
             this.health = health;
             this.inicialhealth = health;
-            this.spellbook = spellbook
-
+            this.spellbook = spellbook;
         }
 
         public void Equip()
@@ -66,6 +66,20 @@ namespace Library
             wizard.Damaged(this.item.UseItem() * this.attack);
         }
 
+        public void CastSpell(Wizard wizard)
+        {
+            wizard.Damaged(this.spellbook.CastSpell());
+        }
+
+        public void CastSpell(Elf elf)
+        {
+            elf.Damaged(this.spellbook.CastSpell());
+        }
+
+        public void CastSpell(Dwarf dwarf)
+        {
+            dwarf.Damaged(this.spellbook.CastSpell());
+        }
         public void Damaged(int damage)
         {
             this.health = this.health - damage;
@@ -74,11 +88,6 @@ namespace Library
         public void Heal()
         {
             this.health = inicialhealth;
-        }
-
-        public void CastSkill()
-        {
-            this.item.skill.CastSpell();
         }
 
         public void PrettyPrint()
