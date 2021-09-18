@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class SpellBook
+    public class SpellBook  //Esta clase se encarga de crear objetos tipo SpellBook
     {
         public string name { get; set; }
         private Dictionary<int,Spell> spells = new Dictionary<int, Spell>();
@@ -19,7 +19,7 @@ namespace Library
             Console.WriteLine($"This is {this.name}, and it contains {this.spells.Count} spells");
         }
         
-        public void AddSpell(Spell spell)
+        public void AddSpell(Spell spell) //Metodo que añade hechizos al SpellBook
         {
             int number;
             if(this.spells.Count > 0)

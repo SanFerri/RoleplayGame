@@ -1,7 +1,7 @@
 using System;
 namespace Library
 {
-    public class Item
+    public class Item  //Esta clase se encarga de crear obetos tipo item
     {
         public string name { get; set; }
         public int damage {get; set;}
