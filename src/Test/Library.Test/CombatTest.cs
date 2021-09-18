@@ -8,7 +8,7 @@ namespace Test.Library
     public class ExampleTest
     {
         [Test]
-        public void TestingAttack()
+        public void TestingAttack() //Este test se encarga de comprobar que el metodo de ataque hace el daño estimado a la vida del personaje.
         {
             Spell BloodySpear = new Spell("Bloody Spear", 65);
             SpellBook DeathNote = new SpellBook("Death Note");
@@ -38,7 +38,7 @@ namespace Test.Library
         }
 
         [Test]
-        public void TestingSpell()
+        public void TestingSpell() // Este test se encarga de comprobar que se añaden correctamente los spells, así como su funcionamiento a la hora de ser usados para atacar a otro personaje
         {
             Spell BloodySpear = new Spell("Bloody Spear", 65);
             SpellBook DeathNote = new SpellBook("Death Note");
@@ -66,7 +66,7 @@ namespace Test.Library
             Assert.AreEqual(expected, Fafnir.health);
         }
         [Test]
-        public void healtest()
+        public void healtest()  //Este test se encarga de comprobar que el metodo de curar restaure adecuadamente la salud del personaje a su valor inicial
         {
             Spell BloodySpear = new Spell("Bloody Spear", 65);
             SpellBook DeathNote = new SpellBook("Death Note");

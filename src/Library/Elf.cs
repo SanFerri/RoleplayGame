@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class Elf
+    public class Elf //Esta clase se encarga de crear obetos tipo elf
     {
         private string name { get; set; }
         private int attack { get; set; }

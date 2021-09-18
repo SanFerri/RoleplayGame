@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class Dwarf
+    public class Dwarf  //Esta clase se encarga de crear obetos tipo dwarf
     {
         private string name { get; set; }
         private int attack { get; set; }
